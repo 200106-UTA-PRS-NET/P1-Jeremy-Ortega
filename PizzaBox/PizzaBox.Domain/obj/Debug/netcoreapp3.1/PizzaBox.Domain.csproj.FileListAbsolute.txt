@@ -1,0 +1,8 @@
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.deps.json
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.dll
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.pdb
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.csprojAssemblyReference.cache
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfoInputs.cache
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfo.cs
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.dll
+C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.pdb

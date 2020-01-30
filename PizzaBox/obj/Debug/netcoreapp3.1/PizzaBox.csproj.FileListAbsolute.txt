@@ -1,0 +1,3 @@
+C:\Users\JPOje\source\repos\PizzaBox\obj\Debug\netcoreapp3.1\PizzaBox.csprojAssemblyReference.cache
+C:\Users\JPOje\source\repos\PizzaBox\obj\Debug\netcoreapp3.1\PizzaBox.AssemblyInfoInputs.cache
+C:\Users\JPOje\source\repos\PizzaBox\obj\Debug\netcoreapp3.1\PizzaBox.AssemblyInfo.cs

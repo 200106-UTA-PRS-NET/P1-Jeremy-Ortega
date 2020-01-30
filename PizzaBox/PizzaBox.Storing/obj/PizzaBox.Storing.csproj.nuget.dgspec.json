@@ -1,0 +1,125 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+        "projectName": "PizzaBox.Domain",
+        "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+        "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
+        "projectName": "PizzaBox.Storing",
+        "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
+        "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+                "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
