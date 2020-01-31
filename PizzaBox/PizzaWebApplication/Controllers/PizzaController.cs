@@ -75,16 +75,17 @@ namespace PizzaWebApplication.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //Pizza1 px = new Pizza1()
-                    //{
-                    //    Size = pizza.Size,
-                    //    Price = pizza.Price,
-                    //    OrderId = pizza.OrderId,
-                    //    Crust = pizza.Crust,
-                    //    PizzaId = pizza.PizzaId,
-                    //    Toppings = pizza.Toppings
-                    //};
-                    //_repo.CreatePizza(px);
+                    Pizza1 px = new Pizza1()
+                    {
+                        Size = pizza.Size,
+                        Crust = pizza.Crust,
+                        Toppings = pizza.Toppings,
+                        //PizzaId = pizza.PizzaId,
+                        //Price = pizza.Price,
+                        //OrderId = pizza.OrderId
+                    };
+                    _repo.CreatePizza(px);
+                   // return View();
                     return RedirectToAction(nameof(Index));
                 }
                 else

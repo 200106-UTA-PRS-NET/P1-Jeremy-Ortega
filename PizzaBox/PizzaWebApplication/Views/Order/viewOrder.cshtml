@@ -1,4 +1,4 @@
-﻿@model PizzaWebApplication.Models.OrderViewModel
+﻿@model IEnumerable<PizzaWebApplication.Models.PizzaViewModel>
 
 @{
     ViewData["Title"] = "viewOrder";
@@ -10,7 +10,7 @@
     <h4>OrderViewModel</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        @*<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.OrderId)
         </dt>
         <dd class = "col-sm-10">
@@ -39,7 +39,7 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.OrderDate)
-        </dd>
+        </dd>*@
     </dl>
 </div>
 <div>

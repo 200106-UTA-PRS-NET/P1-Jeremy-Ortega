@@ -57,6 +57,7 @@ namespace PizzaWebApplication.Controllers
                         _CVM.Email = collection.Email;
                         _CVM.Fname = cr.Fname;
                         _CVM.Id = cr.Id;
+
                         return RedirectToAction("Index", "Store");
                     }
                 }

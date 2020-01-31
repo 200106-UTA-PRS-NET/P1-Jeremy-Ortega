@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using PizzaBox.Domain;
 using PizzaBox.Storing.Abstractions;
 using PizzaBox.Storing.TestModels;
 using PizzaWebApplication.Models;
+using PizzaWebApplication.Data;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -81,16 +83,13 @@ namespace PizzaWebApplication.Controllers
         }
 
 
-        public IActionResult viewOrder(OrderViewModel OVM)
+        public IActionResult viewOrder(PizzaViewModel OVM)
         {
             // created object from _repo database object
             var order = _repo.ReadInOrder();
 
             // Create new list of order objects, We need just the Ones related to the customer.
-            List<OrderViewModel> ovm = new List<OrderViewModel>();
-
-            // Create a customer object that has access to all customers in tthe table
-            var cus = new PizzaBox.Storing.Repositories.CustomerRepository();
+            List<PizzaViewModel> ovm = new List<PizzaViewModel>();
 
             // Check each of the orders in the database 
             foreach (var ord in order.OrderByDescending(e=>e.OrderDate))
@@ -98,12 +97,16 @@ namespace PizzaWebApplication.Controllers
                  // If the order id matches the OVM 
                  if (ord.CustId == _CVM.Id)
                  {
-                     // 
-                     ovm.Add(OVM);
+                    PizzaViewModel ordV = new PizzaViewModel();
+                    ordV.Toppings = OVM.Toppings;
+                    ordV.Size = OVM.Size;
+                    ordV.Crust = OVM.Crust;
+
+                    FullOrder.currOrder.Add(ordV);
                  }
-                
             }
-            return View(ovm);
+
+            return View(FullOrder.currOrder);
             //return View();
         }
 
