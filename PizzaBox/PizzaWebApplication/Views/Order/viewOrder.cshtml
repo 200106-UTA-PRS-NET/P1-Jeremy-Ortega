@@ -11,18 +11,19 @@
     <hr />
     <dl class="row">
         Toppings:
-        @for (int i = 0; i < PizzaWebApplication.Data.FullOrder.currOrder.Count; i++)
+        @*
+        @for (int i = 0; i < Model.; i++)
         {
 
             <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].size</dt>
-            <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].crust</dt>
-            <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].toppings[0]</dt>
-            @*@for (int j = 0; j < PizzaWebApplication.Data.FullOrder.currOrder[i].toppings.Count; j++)
+
+            @for (int j = 0; j < PizzaWebApplication.Data.FullOrder.currOrder[i].toppings.Count; j++)
             {
                 <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].toppings[j]</dt>
                 @PizzaWebApplication.Data.FullOrder.currOrder[i].toppings[j].Remove(0);
-            }*@
+            }
         }
+        *@
         @*
         Size:
             <dt>
