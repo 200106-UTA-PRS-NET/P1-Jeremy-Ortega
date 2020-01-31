@@ -1,0 +1,37 @@
+﻿@model IEnumerable<PizzaWebApplication.Models.StoreViewModel>
+ 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Locations</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StoreName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {   
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

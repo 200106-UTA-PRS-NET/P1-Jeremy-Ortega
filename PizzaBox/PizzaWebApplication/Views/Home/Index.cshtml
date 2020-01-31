@@ -1,0 +1,11 @@
+﻿@model PizzaWebApplication.Models.CustomerViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+    <form asp-action="Create" asp-controller="Login">
+        <div class="text-center">
+            <button onclick="location.href='@Url.Action("Create", "Customer")'" type="button" class="btn btn-primary">Sign Up</button>
+            <button onclick="location.href='@Url.Action("Create", "Login")'" type="button" class="btn btn-primary">Sign In</button>
+        </div>
+    </form>
+

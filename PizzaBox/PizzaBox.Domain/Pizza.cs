@@ -6,16 +6,15 @@ namespace PizzaBox.Domain
 {
     public class Pizza
     {
-
         /// <summary>
         /// Size of pizza, choice by customer with properties
         /// </summary>
-        public Size size { get; set; }
-        public enum Size
+        /// 
+        public PizzaSize pizzaSize { get; set; }
+        public enum PizzaSize
         {
-            twelveInch, fifteenInch, twentyInch,
+            twelveInch, fifteenInch, twentyInch, none,
         }
-
 
         /// <summary>
         /// Toppings choice given to customer using list to store
@@ -24,9 +23,8 @@ namespace PizzaBox.Domain
         public List<Toppings> toppings;
        public enum Toppings
         {
-            sauce, cheese, pepperoni, sausage, pineapple
+            sauce, cheese, pepperoni, sausage, pineapple,
         }
-
 
         /// <summary>
         /// Crust choice will be a multiplicative addition based on size of pizza.
@@ -38,10 +36,23 @@ namespace PizzaBox.Domain
         }
 
 
+
+        /// <summary>
+        ///  Basic Pizza choice has no pizza with default pizza
+        ///  constructor.
+        /// </summary>
+        public Pizza()
+        {
+            toppings = new List<Toppings>();
+            pizzaSize = PizzaSize.twelveInch;
+            crust = Crust.thin;
+            //defaultToppings();
+        }
+
         /// <summary>
         /// Pizza requires at least cheese and pepperoni
         /// </summary>
-        private void defaultToppings()
+        public void setDefaultToppings()
         {
             toppings = new List<Toppings>();
             toppings.Add(Toppings.cheese);
@@ -55,7 +66,7 @@ namespace PizzaBox.Domain
         /// <param name="top"></param>
         public void addToppings(Toppings top)
         {
-            if (toppings.Count >= 5)
+            if (toppings.Count > 5)
             {
                 Console.WriteLine("Topping Limit is reached");
             }
@@ -63,6 +74,46 @@ namespace PizzaBox.Domain
             {
                 toppings.Add(top);
             }
+        }
+
+        //public string [] getListOfPossibleToppings()
+        //{
+        //    string [] str = new string[] {"sauce","cheese","pepperoni","sausage","pineapple"};
+        //}
+
+        /// <summary>
+        /// return the toppings in a string list
+        /// </summary>
+        /// <returns></returns>
+        public List<string> getChosenToppings()
+        {
+            List<string> strTops= new List<string>();
+            foreach (Toppings top in toppings)
+            {
+                string strTop = "";
+                if (top == Toppings.cheese)
+                {
+                    strTop = "cheese";
+                }
+                if (top == Toppings.pepperoni)
+                {
+                    strTop = "pepperoni";
+                }
+                if (top == Toppings.pineapple)
+                {
+                    strTop = "pineapple";
+                }
+                if (top == Toppings.sausage)
+                {
+                    strTop = "sausage";
+                }
+                if (top == Toppings.sauce)
+                {
+                    strTop = "sauce";
+                }
+                strTops.Add(strTop);
+            }
+            return strTops;
         }
 
 
@@ -75,28 +126,67 @@ namespace PizzaBox.Domain
             crust = c;
         }
 
+        public int getSizeChoice()
+        {
+            if(pizzaSize == PizzaSize.twelveInch)
+            {
+                return 1;
+            }
+            else if (pizzaSize == PizzaSize.fifteenInch)
+            {
+                return 2;
+            }
+            else if (pizzaSize == PizzaSize.twentyInch)
+            {
+                return 3;
+            }
+            return -1;
+        }
+
 
         /// <summary>
-        /// Calculate the total price of the pizza.
+        /// Retun the type of crust chosen
         /// </summary>
         /// <returns></returns>
-        public double getPrice()
+        public string getCrustChoice()
+        {
+            if (crust == Crust.thin)
+            {
+                return "thin";
+            }
+            else if (crust == Crust.deepdish)
+            {
+                return "deepdish";
+            }
+            else if (crust == Crust.cheesefilled)
+            {
+                return "cheesecrust";
+            }
+            return ";)";
+        }
+
+
+        /// <summary>
+        /// returns total price of pizza ordered.
+        /// </summary>
+        /// <returns></returns>
+        public double getPriceOfPizza()
         {
             double ToppingsPrice = 0.0;
-            double CrustMultiplier = 0.0;
+            double CrustMultiplier;
             double pizzaSizeCost = 0.0;
 
             // Chosen Size
-            Size size = this.size;
+            PizzaSize size = pizzaSize;
             switch (size)
             {
-                case Size.twelveInch:
+                case PizzaSize.twelveInch:
                     pizzaSizeCost = 5.0;
                     break;
-                case Size.fifteenInch:
+                case PizzaSize.fifteenInch:
                     pizzaSizeCost = 8.0;
                     break;
-                case Size.twentyInch:
+                case PizzaSize.twentyInch:
                     pizzaSizeCost = 11.0;
                     break;
                 default:
@@ -120,9 +210,11 @@ namespace PizzaBox.Domain
                     break;
                 default:
                     Console.WriteLine("No crust was chosen.");
+                    CrustMultiplier = 1.0;
                     Thread.Sleep(3000);
                     break;
             }
+
 
             // Chosen Toppings
             if (toppings.Contains(Toppings.cheese))
@@ -146,8 +238,9 @@ namespace PizzaBox.Domain
                 ToppingsPrice += 1.75;
             }
 
+
             // return total cost of pizza
-            return pizzaSizeCost*CrustMultiplier + ToppingsPrice;
+            return pizzaSizeCost * CrustMultiplier + ToppingsPrice;
 
         }
 

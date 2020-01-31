@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj": {}
+    "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj": {
+    "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
+        "projectUniqueName": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
         "projectName": "PizzaBox.Client",
-        "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
+        "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
         "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Client\\obj\\",
+        "outputPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,11 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
-                "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
+              "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+                "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
               },
-              "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
-                "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj"
+              "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
+                "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj"
               }
             }
           }
@@ -44,6 +44,28 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,18 +84,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+    "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
         "projectName": "PizzaBox.Domain",
-        "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+        "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
         "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\obj\\",
+        "outputPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -99,6 +121,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -114,18 +154,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
+    "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
+        "projectUniqueName": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
         "projectName": "PizzaBox.Storing",
-        "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
+        "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj",
         "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Storing\\obj\\",
+        "outputPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -141,8 +181,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
-                "projectPath": "C:\\Users\\JPOje\\source\\repos\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
+              "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+                "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
               }
             }
           }
@@ -156,6 +196,22 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "NLog.Web.AspNetCore": {
               "target": "Package",
               "version": "[4.9.0, )"
@@ -179,7 +235,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

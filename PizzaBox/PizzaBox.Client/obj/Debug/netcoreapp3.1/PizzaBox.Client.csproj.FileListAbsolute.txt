@@ -18,3 +18,65 @@ C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Piz
 C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Domain.pdb
 C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Storing.pdb
 C:\Users\JPOje\source\repos\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.csproj.CopyComplete
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Nlog.config
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Client.exe
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Client.deps.json
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Client.runtimeconfig.json
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Client.runtimeconfig.dev.json
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Client.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Client.pdb
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Domain.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Storing.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Domain.pdb
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\PizzaBox.Storing.pdb
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.csprojAssemblyReference.cache
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.AssemblyInfoInputs.cache
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.AssemblyInfo.cs
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.csproj.CopyComplete
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.pdb
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Json.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Revature\P0-Jeremy-Ortega\PizzaBox\PizzaBox.Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.csprojAssemblyReference.cache
+C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.AssemblyInfoInputs.cache
+C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.AssemblyInfo.cs
+C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.dll
+C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Client\obj\Debug\netcoreapp3.1\PizzaBox.Client.pdb

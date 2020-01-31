@@ -1,4 +1,6 @@
+using PizzaBox.Domain;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace PizzaBox.Testing
