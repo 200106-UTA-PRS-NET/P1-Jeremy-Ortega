@@ -81,10 +81,10 @@ namespace PizzaBox.Storing.Repositories
 
         public IEnumerable<Store1> ReadInStore()
         {
-            var getPizza = from P in PC.Store
+            var getStore = from P in PC.Store
                            select MapStore.Map(P);
 
-            return getPizza;
+            return getStore;
         }
 
         public void UpdateStore(Store1 Order)

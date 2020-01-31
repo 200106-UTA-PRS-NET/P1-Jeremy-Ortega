@@ -5297,11 +5297,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
+      "projectUniqueName": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
       "projectName": "PizzaBox.Client",
-      "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
+      "projectPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Client\\PizzaBox.Client.csproj",
       "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Client\\obj\\",
+      "outputPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5317,11 +5317,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
-              "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
+            "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+              "projectPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
             },
-            "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
-              "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj"
+            "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj": {
+              "projectPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Storing\\PizzaBox.Storing.csproj"
             }
           }
         }

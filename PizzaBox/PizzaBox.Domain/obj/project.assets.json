@@ -5001,11 +5001,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+      "projectUniqueName": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
       "projectName": "PizzaBox.Domain",
-      "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
+      "projectPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj",
       "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\obj\\",
+      "outputPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",

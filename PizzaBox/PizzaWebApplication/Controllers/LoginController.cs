@@ -14,9 +14,11 @@ namespace PizzaWebApplication.Controllers
     {
 
         private readonly IRepositoryCustomer<Customer1> _repo;
-        public LoginController(IRepositoryCustomer<Customer1> repo)
+        private readonly CustomerViewModel _CVM;
+        public LoginController(IRepositoryCustomer<Customer1> repo, CustomerViewModel CVM)
         {
             _repo = repo;
+            _CVM = CVM;
         }
 
         // GET: Login
@@ -42,19 +44,24 @@ namespace PizzaWebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(LoginViewModel collection)
         {
-
-            foreach (var cr in _repo.ReadInCustomer())
-            {
-                if (collection.Email == cr.Email)
-                {
-                    RedirectToAction("create", "StoreController");
-                }
-            }
-
+            
             try
             {
+                // Go through Each customer in the database
+                foreach (var cr in _repo.ReadInCustomer())
+                {
+                    // If The Email and password match the customer query than place customer information in the 
+                    // Singleton to be used in other Controller Classes via "_CVM".
+                    if (collection.Email == cr.Email && collection.password == cr.UserPass)
+                    {
+                        _CVM.Email = collection.Email;
+                        _CVM.Fname = cr.Fname;
+                        _CVM.Id = cr.Id;
+                        return RedirectToAction("Index", "Store");
+                    }
+                }
                 // RedirectToAction("Action", "Controller");
-                return RedirectToAction(nameof(Index));
+                return View();
             }
             catch
             {

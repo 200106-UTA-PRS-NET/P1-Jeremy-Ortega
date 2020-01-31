@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<PizzaWebApplication.Models.StoreViewModel>
- 
+@*@model PizzaWebApplication.Models.StoreViewModel*@
+@*Ctrl+k, Ctrl+c      Ctrl+K, Ctrl+u*@
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Locations</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 
 <table>
     <thead>
@@ -23,7 +21,7 @@
     </thead>
     <tbody>
         @foreach (var item in Model)
-        {   
+        {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.StoreLocation)
@@ -31,7 +29,20 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.StoreName)
                 </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form asp-action="Create" asp-controller="Pizza">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+

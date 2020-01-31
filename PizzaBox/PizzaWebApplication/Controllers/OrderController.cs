@@ -17,8 +17,11 @@ namespace PizzaWebApplication.Controllers
     {
 
         private readonly IRepositoryOrders<Order1> _repo;
-        public OrderController(IRepositoryOrders<Order1> repo)
+        private readonly CustomerViewModel _CVM;
+
+        public OrderController(IRepositoryOrders<Order1> repo, CustomerViewModel CVM)
         {
+            _CVM = CVM;
             _repo = repo;
         }
 
@@ -75,6 +78,33 @@ namespace PizzaWebApplication.Controllers
             {
                 return View();
             }
+        }
+
+
+        public IActionResult viewOrder(OrderViewModel OVM)
+        {
+            // created object from _repo database object
+            var order = _repo.ReadInOrder();
+
+            // Create new list of order objects, We need just the Ones related to the customer.
+            List<OrderViewModel> ovm = new List<OrderViewModel>();
+
+            // Create a customer object that has access to all customers in tthe table
+            var cus = new PizzaBox.Storing.Repositories.CustomerRepository();
+
+            // Check each of the orders in the database 
+            foreach (var ord in order.OrderByDescending(e=>e.OrderDate))
+            {
+                 // If the order id matches the OVM 
+                 if (ord.CustId == _CVM.Id)
+                 {
+                     // 
+                     ovm.Add(OVM);
+                 }
+                
+            }
+            return View(ovm);
+            //return View();
         }
 
         public ActionResult Edit(int id, IFormCollection collection)

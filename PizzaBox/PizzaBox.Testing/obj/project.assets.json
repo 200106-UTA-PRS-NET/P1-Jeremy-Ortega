@@ -7834,11 +7834,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
+      "projectUniqueName": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
       "projectName": "PizzaBox.Testing",
-      "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
+      "projectPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Testing\\PizzaBox.Testing.csproj",
       "packagesPath": "C:\\Users\\JPOje\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Testing\\obj\\",
+      "outputPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Testing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JPOje\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7854,8 +7854,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
-              "projectPath": "C:\\Users\\JPOje\\OneDrive\\Documents\\Project 1\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
+            "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj": {
+              "projectPath": "C:\\Revature\\P1-Jeremy-Ortega\\PizzaBox\\PizzaBox.Domain\\PizzaBox.Domain.csproj"
             }
           }
         }

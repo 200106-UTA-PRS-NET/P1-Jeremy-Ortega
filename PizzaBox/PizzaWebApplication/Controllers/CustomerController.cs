@@ -14,11 +14,13 @@ namespace PizzaWebApplication.Controllers
 {
     public class CustomerController : Controller
     {
-
+        private readonly CustomerViewModel _Cust;
         private readonly IRepositoryCustomer<Customer1> _repo;
-        public CustomerController(IRepositoryCustomer<Customer1> repo)
+
+        public CustomerController(IRepositoryCustomer<Customer1> repo, CustomerViewModel cust)
         {
             _repo = repo;
+            _Cust = cust;
         }
 
 

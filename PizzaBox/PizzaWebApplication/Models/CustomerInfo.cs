@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PizzaWebApplication.Models
 {
-    public class CustomerViewModel
+    public class CustomerInfo
     {
-        public int Id { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-        public string UserPass { get; set; }
-        public long? Phone { get; set; }
+        public string email { get; set; }
+        public string storeName { get; set; }
+        public int Id { get; set; }
+
     }
 }
