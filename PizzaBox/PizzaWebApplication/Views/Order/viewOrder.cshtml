@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PizzaWebApplication.Models.PizzaViewModel>
+﻿@model PizzaWebApplication.Models.OrderViewModel
 
 @{
     ViewData["Title"] = "viewOrder";
@@ -10,36 +10,59 @@
     <h4>OrderViewModel</h4>
     <hr />
     <dl class="row">
-        @*<dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CustId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CustId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StoreId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StoreId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderDate)
-        </dd>*@
+        Toppings:
+        @for (int i = 0; i < PizzaWebApplication.Data.FullOrder.currOrder.Count; i++)
+        {
+
+            <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].size</dt>
+            <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].crust</dt>
+            <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].toppings[0]</dt>
+            @*@for (int j = 0; j < PizzaWebApplication.Data.FullOrder.currOrder[i].toppings.Count; j++)
+            {
+                <dt>@PizzaWebApplication.Data.FullOrder.currOrder[i].toppings[j]</dt>
+                @PizzaWebApplication.Data.FullOrder.currOrder[i].toppings[j].Remove(0);
+            }*@
+        }
+        @*
+        Size:
+            <dt>
+                @PizzaWebApplication.Data.FullOrder.getSize(PizzaWebApplication.Data.FullOrder.currOrder[i].Size);
+            </dt>
+            Crust:
+            <dt>
+                @PizzaWebApplication.Data.FullOrder.getCrust;
+            </dt>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.OrderId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.OrderId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CustId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CustId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StoreId)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.StoreId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.OrderDate)
+            </dd>*@
     </dl>
 </div>
 <div>

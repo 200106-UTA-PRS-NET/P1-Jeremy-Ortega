@@ -10,6 +10,7 @@ using PizzaBox.Storing.Abstractions;
 using PizzaBox.Storing.TestModels;
 using PizzaWebApplication.Models;
 using PizzaWebApplication.Data;
+using PizzaBox.Storing;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -88,23 +89,19 @@ namespace PizzaWebApplication.Controllers
             // created object from _repo database object
             var order = _repo.ReadInOrder();
 
-            // Create new list of order objects, We need just the Ones related to the customer.
-            List<PizzaViewModel> ovm = new List<PizzaViewModel>();
-
             // Check each of the orders in the database 
-            foreach (var ord in order.OrderByDescending(e=>e.OrderDate))
-            {
+            //foreach (var ord in order.OrderByDescending(e=>e.OrderDate))
+            //{
                  // If the order id matches the OVM 
-                 if (ord.CustId == _CVM.Id)
-                 {
-                    PizzaViewModel ordV = new PizzaViewModel();
-                    ordV.Toppings = OVM.Toppings;
-                    ordV.Size = OVM.Size;
-                    ordV.Crust = OVM.Crust;
-
+                 //if (ord.CustId == _CVM.Id)
+                 //{
+                    PizzaOrderCypher ordV = new PizzaOrderCypher();
+                    ordV.setToppings(BitFlagConversion.convertIntToFlagArray(5, OVM.Toppings));
+                    ordV.setSize(OVM.Size);
+                    ordV.setCrust(OVM.Crust);
                     FullOrder.currOrder.Add(ordV);
-                 }
-            }
+                 //}
+            //}
 
             return View(FullOrder.currOrder);
             //return View();

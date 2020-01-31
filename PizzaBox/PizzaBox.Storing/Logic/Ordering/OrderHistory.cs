@@ -20,7 +20,7 @@ namespace PizzaBox.Storing.Logic.Ordering
             var pizza = pizzaRepo.ReadInPizza();
 
 
-            BitFlagConversion BFC = new BitFlagConversion();
+            //BitFlagConversion BFC = new BitFlagConversion();
             Console.Clear();
             Console.WriteLine(" ____________________________________________________________________________");
             Console.WriteLine(" | Hello:\t[" + username + "]");
@@ -43,7 +43,7 @@ namespace PizzaBox.Storing.Logic.Ordering
                             Console.WriteLine($" | Order: {Ord.OrderId} on Date {Ord.OrderDate}  Total Cost ${Ord.Price}");
                         }
                         Console.Write($" |     ${pie.Price}       :: {pie.Size}inch {pie.Crust} ");
-                        char[] tops = BFC.convertIntToFlagArray(pie.Toppings, 5);
+                        char[] tops =  BitFlagConversion.convertIntToFlagArray(pie.Toppings, 5);
                         if (tops[0] == '1')
                         {
                             Console.Write(" <sauce> ");

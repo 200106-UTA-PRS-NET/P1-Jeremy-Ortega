@@ -62,8 +62,10 @@ namespace PizzaWebApplication.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    Random random = new Random();
                     Customer1 cx = new Customer1()
                     {
+                        Id = random.Next(1000000000, 2000000000),
                         Fname = customer.Fname,
                         Lname = customer.Lname,
                         Email = customer.Email,

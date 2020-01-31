@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PizzaBox.Storing
 {
-    class BitFlagConversion
+    public class BitFlagConversion
     {
         public BitFlagConversion(){
         }
@@ -16,7 +16,7 @@ namespace PizzaBox.Storing
         /// <returns></returns>
         public static int convertFlagArrayToInt(char[] charArr)
         {
-            string str = new String(charArr);
+            string str = new string(charArr);
             int Out = Convert.ToInt32(str, 2);
             return Out;
         }
@@ -26,7 +26,7 @@ namespace PizzaBox.Storing
         /// </summary>
         /// <param name="b"></param>
         /// <returns></returns>
-        public char[] convertIntToFlagArray(int b, int choiceLen)
+        public static char[] convertIntToFlagArray(int b, int choiceLen)
         {
             // b is now boolean representation of int b, backwards
             string s = Convert.ToString(b, 2);
