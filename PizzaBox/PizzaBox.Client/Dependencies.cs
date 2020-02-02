@@ -22,10 +22,10 @@ namespace PizzaBox.Client
                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             IConfigurationRoot configuration = configurBuilder.Build();
-            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectDbContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("PizzaProject"));
             var options = optionsBuilder.Options;
-            PizzaProjectContext db = new PizzaProjectContext(options);
+            PizzaProjectDbContext db = new PizzaProjectDbContext(options);
             return new CustomerRepository(db);
         }
         public static IRepositoryOrders<Storing.TestModels.Order1> CreateOrderRepository()
@@ -35,10 +35,10 @@ namespace PizzaBox.Client
                             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             IConfigurationRoot configuration = configurBuilder.Build();
-            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectDbContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("PizzaProject"));
             var options = optionsBuilder.Options;
-            PizzaProjectContext db = new PizzaProjectContext(options);
+            PizzaProjectDbContext db = new PizzaProjectDbContext(options);
             return new OrderRepository(db);
         }
 
@@ -49,10 +49,10 @@ namespace PizzaBox.Client
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             IConfigurationRoot configuration = configurBuilder.Build();
-            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectDbContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("PizzaProject"));
             var options = optionsBuilder.Options;
-            PizzaProjectContext db = new PizzaProjectContext(options);
+            PizzaProjectDbContext db = new PizzaProjectDbContext(options);
             return new StoreRepository(db);
         }
 
@@ -63,10 +63,10 @@ namespace PizzaBox.Client
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
             IConfigurationRoot configuration = configurBuilder.Build();
-            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<PizzaProjectDbContext>();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("PizzaProject"));
             var options = optionsBuilder.Options;
-            PizzaProjectContext db = new PizzaProjectContext(options);
+            PizzaProjectDbContext db = new PizzaProjectDbContext(options);
             return new PizzaRepository(db);
         }
     }

@@ -26,3 +26,13 @@ C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Domain\obj\Debug\n
 C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfo.cs
 C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.dll
 C:\Users\JPOje\OneDrive\Documents\Project 1\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.pdb
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.deps.json
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.runtimeconfig.json
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.runtimeconfig.dev.json
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.dll
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\bin\Debug\netcoreapp3.1\PizzaBox.Domain.pdb
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.csprojAssemblyReference.cache
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfoInputs.cache
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.AssemblyInfo.cs
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.dll
+C:\Revature\P1-Jeremy-Ortega\PizzaBox\PizzaBox.Domain\obj\Debug\netcoreapp3.1\PizzaBox.Domain.pdb

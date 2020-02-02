@@ -30,15 +30,16 @@ namespace PizzaBox.Client
             //Dictionary<string, string> UserList = new Dictionary<string, string>();
             //int choice = SI.SignInToAccount(UserList, pizza, stores, CxRepo, orderRepo, pizzaRepo, storeRepo);
 
-            _a_SignIn SI = new _a_SignIn();
+            //_a_SignIn SI = new _a_SignIn();
             // Sign In 
 
-            var CxRepo = Dependencies.CreateCustomerRepository();
-            var orderRepo = Dependencies.CreateOrderRepository();
-            var pizzaRepo = Dependencies.CreatePizzaRepository();
-            var storeRepo = Dependencies.CreatStoreRepository();
+            // These can erased later.  Due to uncertainty of the time I created objects 
+            //var CxRepo = Dependencies.CreateCustomerRepository();
+            //var orderRepo = Dependencies.CreateOrderRepository();
+            //var pizzaRepo = Dependencies.CreatePizzaRepository();
+            //var storeRepo = Dependencies.CreatStoreRepository();
 
-            int choice = SI.SignInToAccount(CxRepo, orderRepo, pizzaRepo, storeRepo);
+            //int choice = SI.SignInToAccount(CxRepo, orderRepo, pizzaRepo, storeRepo);
 
             //Storing.Abstractions.IRepositoryCustomer<Customer1> repo
 

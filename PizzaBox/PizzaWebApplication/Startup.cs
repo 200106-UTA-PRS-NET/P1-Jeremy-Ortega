@@ -31,9 +31,10 @@ namespace PizzaWebApplication
 
             string connectionString = Configuration.GetConnectionString("PizzaProject");
 
-            services.AddDbContext<PizzaProjectContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<PizzaProjectDbContext>(options => options.UseSqlServer(connectionString));
             
             services.AddTransient<IRepositoryCustomer<Customer1>, CustomerRepository>();
+            services.AddTransient<IRepositoryTempCustomerOrder<TempCustomerOrder1>, TempCustomerOrderRepo>(); 
 
             services.AddSingleton<Models.CustomerViewModel, Models.CustomerViewModel>();
 

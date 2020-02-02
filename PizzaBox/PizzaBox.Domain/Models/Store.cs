@@ -8,6 +8,7 @@ namespace PizzaBox.Domain.Models
         public Store()
         {
             CxOrder = new HashSet<CxOrder>();
+            TempCustomerOrder = new HashSet<TempCustomerOrder>();
         }
 
         public int Id { get; set; }
@@ -15,5 +16,6 @@ namespace PizzaBox.Domain.Models
         public string StoreName { get; set; }
 
         public virtual ICollection<CxOrder> CxOrder { get; set; }
+        public virtual ICollection<TempCustomerOrder> TempCustomerOrder { get; set; }
     }
 }

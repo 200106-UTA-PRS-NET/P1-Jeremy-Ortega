@@ -12,6 +12,5 @@ namespace PizzaBox.Storing.TestModels
         public string Email { get; set; }
         public string UserPass { get; set; }
         public long? Phone { get; set; }
-
     }
 }

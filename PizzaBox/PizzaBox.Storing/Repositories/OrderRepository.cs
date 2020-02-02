@@ -11,12 +11,12 @@ namespace PizzaBox.Storing.Repositories
 {
     public class OrderRepository : IRepositoryOrders<Order1>
     {
-        PizzaProjectContext PC;
+        PizzaProjectDbContext PC;
         public OrderRepository()
         {
-            PC = new PizzaProjectContext();
+            PC = new PizzaProjectDbContext();
         }
-        public OrderRepository(PizzaProjectContext PC)
+        public OrderRepository(PizzaProjectDbContext PC)
         {
             // Directly taken from the aformentioned model by Pushpinder Kaur.
             this.PC = PC ?? throw new ArgumentNullException(nameof(PC));
