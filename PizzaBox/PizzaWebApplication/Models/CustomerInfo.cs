@@ -12,6 +12,7 @@ namespace PizzaWebApplication.Models
         public static string Lname { get; set; }
         public static string email { get; set; }
         public static string storeName { get; set; }
+        public static int StoreId { get; set; }
         public static int Id { get; set; }
 
     }

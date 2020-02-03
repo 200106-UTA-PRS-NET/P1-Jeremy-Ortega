@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Storing.TestModels;
 using PizzaBox.Storing.Abstractions;
 using PizzaWebApplication.Models;
+using PizzaWebApplication.Data;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -43,8 +44,41 @@ namespace PizzaWebApplication.Controllers
             return View(pvm);
         }
 
-        public IActionResult Create()
+        [HttpGet]
+        public IActionResult CreateNewPizza()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateNewPizza(TempCustomerOrder tmp)
+        {
+            int size = tmp.Size;
+            string crust = tmp.Crust;
+            bool sauce = tmp.sauce;
+            bool cheese = tmp.cheese;
+            bool pepperoni = tmp.pepperoni;
+            bool sausage = tmp.sausage;
+            bool pineapple = tmp.pineapple;
+
+
+            return View();
+        }
+
+
+
+        [HttpPost]
+        public IActionResult CompleteOrder(IEnumerable<bool> Pepperoni)
+        {
+            if (Pepperoni != null)
+            {
+
+            }
+
+
+            //                < div class="form-check form-check-inline">
+            //    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+            //    <label class="form-check-label" for="inlineCheckbox5">Pineapple</label>
+            //</div>
             return View();
         }
 

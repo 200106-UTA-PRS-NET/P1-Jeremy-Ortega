@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Storing.Abstractions;
 using PizzaBox.Storing.TestModels;
 using PizzaWebApplication.Models;
+using PizzaWebApplication.Data;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -47,6 +48,10 @@ namespace storeWebApplication.Controllers
                 storeName = StoreName
             };
             CustomerInfo.storeName = StoreName;
+            CustomerInfo.StoreId = _repo.ReadInStore().FirstOrDefault(e=>e.StoreName==StoreName).Id;
+
+            FullOrder.storeName = StoreName;
+            FullOrder.storeID = CustomerInfo.StoreId;
             return View(sovm);
         }
 

@@ -37,7 +37,7 @@ namespace PizzaWebApplication.Controllers
             List<OrderViewModel> ovm = new List<OrderViewModel>();
             foreach (var ord in order)
             {
-                if (ord.CustId == CustomerInfo.Id) {
+                if (ord.CustId == CustomerInfo.Id && ord.StoreId == CustomerInfo.StoreId) {
                     OrderViewModel ox = new OrderViewModel();
                     ox.OrderId = ord.OrderId;
                     ox.CustId = ord.CustId;

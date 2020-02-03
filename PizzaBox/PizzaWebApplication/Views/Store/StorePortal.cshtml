@@ -11,8 +11,8 @@
     <hr />
     <form asp-action="Create" asp-controller="Login">
         <div class="text-center">
-            <button onclick="location.href='@Url.Action("viewOrder", "Order")'" type="button" class="btn btn-primary">View Past Orders</button>
-            <button onclick="location.href='@Url.Action("Index", "Order")'" type="button" class="btn btn-primary">Create New Order</button>
+            <button onclick="location.href='@Url.Action("CreateNewPizza", "Pizza")'" type="button" class="btn btn-primary">Create new Orders</button>
+            <button onclick="location.href='@Url.Action("Index", "Order")'" type="button" class="btn btn-primary">View Past Orders</button>
         </div>
     </form>
 </div>

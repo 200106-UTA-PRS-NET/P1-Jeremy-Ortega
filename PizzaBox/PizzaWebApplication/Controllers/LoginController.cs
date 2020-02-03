@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Storing.Abstractions;
 using PizzaBox.Storing.TestModels;
 using PizzaWebApplication.Models;
+using PizzaWebApplication.Data;
 
 namespace PizzaWebApplication.Controllers
 {
@@ -64,6 +65,11 @@ namespace PizzaWebApplication.Controllers
                 CustomerInfo.Id = v.Id;
                 CustomerInfo.Lname = v.Lname;
                 CustomerInfo.email = v.Email;
+
+                FullOrder.userName = v.Fname;
+                FullOrder.UserID = v.Id;
+                
+
 
 
                 //List<StoreViewModel> svm = new List<StoreViewModel>();
