@@ -32,18 +32,20 @@ namespace PizzaWebApplication.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            var order = _repo.ReadInOrder();
+            var order = _repo.ReadInOrder().OrderByDescending(e=>e.OrderDate).ToList();
 
             List<OrderViewModel> ovm = new List<OrderViewModel>();
             foreach (var ord in order)
             {
-                OrderViewModel ox = new OrderViewModel();
-                ox.OrderId = ord.OrderId;
-                ox.CustId = ord.CustId;
-                ox.OrderDate = ord.OrderDate;
-                ox.Price = ord.Price;
-                ox.StoreId = ord.StoreId;
-                ovm.Add(ox);
+                if (ord.CustId == CustomerInfo.Id) {
+                    OrderViewModel ox = new OrderViewModel();
+                    ox.OrderId = ord.OrderId;
+                    ox.CustId = ord.CustId;
+                    ox.OrderDate = ord.OrderDate;
+                    ox.Price = ord.Price;
+                    ox.StoreId = ord.StoreId;
+                    ovm.Add(ox);
+                }
             }
             return View(ovm);
         }

@@ -24,7 +24,7 @@ namespace storeWebApplication.Controllers
         public IActionResult Index()
         {
             var store = _repo.ReadInStore();
-
+            var n = TempData["Name"];
             List<StoreViewModel> svm = new List<StoreViewModel>();
             foreach (var sto in store)
             {
@@ -35,6 +35,19 @@ namespace storeWebApplication.Controllers
                 svm.Add(sx);
             }
             return View(svm);
+        }
+
+        // GET: /<controller>/
+        [HttpGet]
+        public IActionResult StorePortal(string StoreName, string Fname)
+        {
+            StoreOptionsViewModel sovm = new StoreOptionsViewModel
+            {
+                Fname = Fname,
+                storeName = StoreName
+            };
+            CustomerInfo.storeName = StoreName;
+            return View(sovm);
         }
 
         public IActionResult Create()

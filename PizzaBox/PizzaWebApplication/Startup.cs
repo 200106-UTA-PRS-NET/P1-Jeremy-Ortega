@@ -29,6 +29,7 @@ namespace PizzaWebApplication
         public void ConfigureServices(IServiceCollection services)
         {
 
+
             string connectionString = Configuration.GetConnectionString("PizzaProject");
 
             services.AddDbContext<PizzaProjectDbContext>(options => options.UseSqlServer(connectionString));
@@ -41,7 +42,6 @@ namespace PizzaWebApplication
             services.AddTransient<IRepositoryOrders<Order1>, OrderRepository>();
             services.AddTransient<IRepositoryPizza<Pizza1>, PizzaRepository>();
             services.AddTransient<IRepositoryStore<Store1>, StoreRepository>();
-
 
             services.AddControllersWithViews();
         }
@@ -65,6 +65,7 @@ namespace PizzaWebApplication
             app.UseRouting();
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

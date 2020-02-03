@@ -1,0 +1,46 @@
+﻿@model PizzaWebApplication.Models.StoreOfSpecificCustomerModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Welcome @Model.CVM.Fname!</h1>
+
+<h4>Please Select a location</h4>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LOS)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LOS)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreLocation)
+            </td>
+            <td>
+                @Html.ActionLink("order","StorePortal", "Store", new { item.StoreName, Model.CVM.Fname })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+<div>
+    @*<a asp-action="Index">Back to List</a>*@
+    <a href="/Home/Index">back to</a>
+</div>
+

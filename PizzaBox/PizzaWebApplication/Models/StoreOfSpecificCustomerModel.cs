@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace PizzaWebApplication.Models
 {
-    public class LoginViewModel
+    public class StoreOfSpecificCustomerModel
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public List<StoreViewModel> LOS { get; set; }
+        public CustomerViewModel CVM { get; set; }
     }
 }

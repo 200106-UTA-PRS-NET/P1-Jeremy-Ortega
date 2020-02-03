@@ -25,7 +25,7 @@ namespace PizzaWebApplication.Models
         // - Authorization
         // - Display purposes
         // - Annotation purposes
-        [DataType(DataType.EmailAddress)]
+        // [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         public string UserPass { get; set; }

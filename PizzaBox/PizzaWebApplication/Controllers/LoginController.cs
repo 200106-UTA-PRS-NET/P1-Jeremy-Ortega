@@ -14,11 +14,21 @@ namespace PizzaWebApplication.Controllers
     {
 
         private readonly IRepositoryCustomer<Customer1> _repo;
-        private readonly CustomerViewModel _CVM;
-        public LoginController(IRepositoryCustomer<Customer1> repo, CustomerViewModel CVM)
+        private readonly IRepositoryOrders<Order1> _order;
+        private readonly IRepositoryStore<Store1> _store;
+
+
+        const string SessionName = "_Name";
+        const string SessionPassword = "_Password";
+
+
+        public LoginController(IRepositoryCustomer<Customer1> repo, 
+            IRepositoryOrders<Order1> orderRepo,
+            IRepositoryStore<Store1> store)
         {
             _repo = repo;
-            _CVM = CVM;
+            _order = orderRepo;
+            _store = store;
         }
 
         // GET: Login
@@ -42,33 +52,65 @@ namespace PizzaWebApplication.Controllers
         // POST: Login/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(LoginViewModel collection)
+        public ActionResult LoggedIn(LoginViewModel collection)
         {
-            
-            try
+            var v = _repo.ReadInCustomer().FirstOrDefault(e => e.Email.Equals(collection.Email) && e.UserPass.Equals(collection.Password));
+            var o = _order.ReadInOrder().ToList();  // Super imprtant to convert to list to close connection
+            var stor = _store.ReadInStore().ToList(); // ned to close connection by first creating a list
+            if (v != null && o != null)
             {
-                // Go through Each customer in the database
-                foreach (var cr in _repo.ReadInCustomer())
-                {
-                    // If The Email and password match the customer query than place customer information in the 
-                    // Singleton to be used in other Controller Classes via "_CVM".
-                    if (collection.Email == cr.Email && collection.password == cr.UserPass)
-                    {
-                        _CVM.Email = collection.Email;
-                        _CVM.Fname = cr.Fname;
-                        _CVM.Id = cr.Id;
 
-                        return RedirectToAction("Index", "Store");
+                CustomerInfo.Fname = v.Fname;
+                CustomerInfo.Id = v.Id;
+                CustomerInfo.Lname = v.Lname;
+                CustomerInfo.email = v.Email;
+
+
+                //List<StoreViewModel> svm = new List<StoreViewModel>();
+                // RedirectToAction("Action", "Controller");
+                StoreOfSpecificCustomerModel _Main = new StoreOfSpecificCustomerModel
+                {
+                    CVM = new CustomerViewModel(),
+                    LOS = new List<StoreViewModel>()
+                };
+                _Main.CVM.Email = v.Email;
+                _Main.CVM.Fname = v.Fname;
+                _Main.CVM.Id = v.Id;
+                _Main.CVM.Lname = v.Lname;
+                DateTime dt = DateTime.Now;
+                double time = 25;
+                double date2 = 25;
+                //For each order go through and check if store id and customer id match
+                foreach (var _stor in stor)
+                {
+                    foreach (var _ord in o.OrderByDescending(e => e.CustId))
+                    {
+                        if (v.Id == _ord.CustId && _ord.StoreId == _stor.Id)
+                        {
+                            TimeSpan ts2 = (TimeSpan)(dt - _ord.OrderDate);
+                            date2 = ts2.TotalMinutes / 60;
+                            if (date2 < time)
+                            {
+                                time = date2;
+                            }
+                        }
+                    }
+                    if (time >= 24)
+                    {
+                        StoreViewModel stm = new StoreViewModel();
+                        stm.Id = _stor.Id;
+                        stm.StoreLocation = _stor.StoreLocation;
+                        stm.StoreName = _stor.StoreName;
+                        _Main.LOS.Add(stm);
+                        // TODO: Add Location 
                     }
                 }
-                // RedirectToAction("Action", "Controller");
-                return View();
+                return View(_Main);
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index", "Login");
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]

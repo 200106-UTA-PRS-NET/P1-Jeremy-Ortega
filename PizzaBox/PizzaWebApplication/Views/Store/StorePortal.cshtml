@@ -1,0 +1,19 @@
+﻿@model PizzaWebApplication.Models.StoreOptionsViewModel
+
+@{
+    ViewData["Title"] = "StorePortal";
+}
+
+<h1>@Model.storeName</h1>
+
+<div>
+    <h4>Welcome: @Model.Fname</h4>
+    <hr />
+    <form asp-action="Create" asp-controller="Login">
+        <div class="text-center">
+            <button onclick="location.href='@Url.Action("viewOrder", "Order")'" type="button" class="btn btn-primary">View Past Orders</button>
+            <button onclick="location.href='@Url.Action("Index", "Order")'" type="button" class="btn btn-primary">Create New Order</button>
+        </div>
+    </form>
+</div>
+

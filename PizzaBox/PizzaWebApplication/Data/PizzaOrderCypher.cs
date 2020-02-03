@@ -11,7 +11,6 @@ namespace PizzaWebApplication.Data
         public string size { get; private set; }
         public string crust { get; private set; }
 
-
         public void setSize(int check)
         {
             string str = "";
@@ -47,7 +46,6 @@ namespace PizzaWebApplication.Data
             }
             crust = str;
         }
-
 
         public void setToppings(char[] boolBits)
         {
