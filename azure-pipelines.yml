@@ -44,8 +44,8 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- script:
-    dotnet build --configuration $(buildConfiguration)
+- script: dotnet build
+    --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
 
