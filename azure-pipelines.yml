@@ -50,10 +50,10 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: dotnet test
-  --configuration: $(buildConfiguration)
-  --no-build
-  --results-directory $(Build.ArtifactStagingDirectory)/test
-  /p:CollectionCoverage=true
+    --configuration $(buildConfiguration)
+    --no-build
+    --results-directory $(Build.ArtifactStagingDirectory)/test
+    /p:CollectionCoverage=true
 workingDirectory: $(pathtosolution)
 displayName: 'dotnet test'
 
