@@ -21,11 +21,13 @@ namespace PizzaWebApplication.Controllers
 
         private readonly IRepositoryOrders<Order1> _repo;
         private readonly CustomerViewModel _CVM;
+        private readonly IRepositoryTempCustomerOrder<TempCustomerOrder1> _tco;
 
-        public OrderController(IRepositoryOrders<Order1> repo, CustomerViewModel CVM)
+        public OrderController(IRepositoryOrders<Order1> repo, CustomerViewModel CVM, IRepositoryTempCustomerOrder<TempCustomerOrder1> TCO)
         {
             _CVM = CVM;
             _repo = repo;
+            _tco = TCO;
         }
 
 
@@ -49,41 +51,52 @@ namespace PizzaWebApplication.Controllers
             }
             return View(ovm);
         }
-
+        
         public IActionResult Create()
         {
-            return View();
+            List<TempCustomerOrder> TCO = new List<TempCustomerOrder>();
+            var fulOrder = _tco.ReadInOrder(FullOrder.UserID);
+            foreach (var ord in fulOrder)
+            {
+                TempCustomerOrder tco = new TempCustomerOrder();
+                tco.Crust = ord.Crust;
+                tco.Price = ord.Price;
+                tco.Size = ord.Size;
+                TCO.Add(tco);
+            }
+
+            return View(TCO);
         }
 
 
-        public IActionResult Create(OrderViewModel order)
-        {
+        //public IActionResult Create(OrderViewModel order)
+        //{
 
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    Order1 ox = new Order1()
-                    {
-                        OrderId = order.OrderId,
-                        CustId = order.CustId,
-                        OrderDate=order.OrderDate,
-                        Price=order.Price,
-                        StoreId=order.StoreId
-                    };
-                    _repo.CreateOrder(ox);
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    return View();
-                }
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            Order1 ox = new Order1()
+        //            {
+        //                OrderId = order.OrderId,
+        //                CustId = order.CustId,
+        //                OrderDate=order.OrderDate,
+        //                Price=order.Price,
+        //                StoreId=order.StoreId
+        //            };
+        //            _repo.CreateOrder(ox);
+        //            return RedirectToAction(nameof(Index));
+        //        }
+        //        else
+        //        {
+        //            return View();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
 
         public IActionResult viewOrder(PizzaViewModel OVM)
@@ -94,15 +107,15 @@ namespace PizzaWebApplication.Controllers
             // Check each of the orders in the database 
             //foreach (var ord in order.OrderByDescending(e=>e.OrderDate))
             //{
-                 // If the order id matches the OVM 
-                 //if (ord.CustId == _CVM.Id)
-                 //{
-                    PizzaOrderCypher ordV = new PizzaOrderCypher();
-                    ordV.setToppings(BitFlagConversion.convertIntToFlagArray(5, OVM.Toppings));
-                    ordV.setSize(OVM.Size);
-                    ordV.setCrust(OVM.Crust);
-                    FullOrder.currOrder.Add(ordV);
-                 //}
+            // If the order id matches the OVM 
+            //if (ord.CustId == _CVM.Id)
+            //{
+            PizzaOrderCypher ordV = new PizzaOrderCypher();
+            ordV.setToppings(BitFlagConversion.convertIntToFlagArray(5, OVM.Toppings));
+            ordV.setSize(OVM.Size);
+            ordV.setCrust(Convert.ToInt32(OVM.Crust));
+            FullOrder.currOrder.Add(ordV);
+            //}
             //}
 
             return View(FullOrder.currOrder);

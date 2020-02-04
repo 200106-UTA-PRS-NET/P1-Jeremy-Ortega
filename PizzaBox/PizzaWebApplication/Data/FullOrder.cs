@@ -17,6 +17,5 @@ namespace PizzaWebApplication.Data
         public static string storeName { get; set; }
         public static int storeID { get; set; }
         public static int orderID { get; set; }
-
     }
 }

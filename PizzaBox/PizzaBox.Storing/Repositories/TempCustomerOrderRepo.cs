@@ -28,7 +28,7 @@ namespace PizzaBox.Storing.Repositories
 
 
 
-        public void CreateOrder(TestModels.TempCustomerOrder1 Order)
+        public void CreateOrder(TempCustomerOrder1 Order)
         {
             PCO.TempCustomerOrder.Add(MapTempCustomerOrder.Map(Order));
             PCO.SaveChanges();

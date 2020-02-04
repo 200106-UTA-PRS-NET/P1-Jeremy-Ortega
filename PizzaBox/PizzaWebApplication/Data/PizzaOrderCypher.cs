@@ -8,41 +8,48 @@ namespace PizzaWebApplication.Data
     public class PizzaOrderCypher
     {
         public List<string> toppings { get; } = new List<string>();
-        public string size { get; private set; }
+        public int size { get; private set; }
         public string crust { get; private set; }
+        public double price{get; private set;}
 
         public void setSize(int check)
         {
-            string str = "";
             if (check == 1)
             {
-                str = "Twelve inch";
+               size = 12;
             }
-            if (check == 2)
+            else if (check == 2)
             {
-                str = "Fifteen inch";
+                size = 15;
             }
-            if (check == 3)
+            else if (check == 3)
             {
-                str = "Twenty Inch";
+                size = 20;
             }
-            size = str;
+            else
+            {
+                size = 12;
+            }
         }
 
-        public void setCrust(string check)
+        public void setCrust(int check)
         {
-            string str = "";
-            if (check.Equals('1'))
+            string str;
+            if (check == 1)
             {
                 str = "Thin";
             }
-            if (check.Equals('2'))
+            else if (check == 2)
             {
                 str = "Deep Dish";
             }
-            if (check.Equals('3'))
+            else if (check == 3)
             {
                 str = "Cheese Filled";
+            }
+            else
+            {
+                str = "Thin";
             }
             crust = str;
         }
@@ -53,22 +60,95 @@ namespace PizzaWebApplication.Data
             {
                 toppings.Add("sauce");
             }
-            if (boolBits[1] == 1)
+            else if (boolBits[1] == 1)
             {
                 toppings.Add("cheese");
             }
-            if (boolBits[2] == 1)
+            else if (boolBits[2] == 1)
             {
                 toppings.Add("pepperoni");
             }
-            if (boolBits[3] == 1)
+            else if (boolBits[3] == 1)
             {
                 toppings.Add("sausage");
             }
-            if (boolBits[4] == 1)
+            else if (boolBits[4] == 1)
             {
                 toppings.Add("pineapple");
             }
+            else
+            {
+                toppings.Add("sauce");
+                toppings.Add("cheese");
+            }
+        }
+
+
+        /// <summary>
+        /// returns total price of pizza ordered.
+        /// </summary>
+        /// <returns></returns>
+        public void getPriceOfPizza()
+        {
+            double ToppingsPrice = 0.0;
+            double CrustMultiplier = 0.0;
+            double pizzaSizeCost = 0.0;
+
+            // Chosen Size
+            if (size == 1)
+            {
+                price += 8.0;
+            }
+            else if (size == 2)
+            {
+                price += 9.5;
+            }
+            else if (size == 3)
+            {
+                price += 10.5;
+            }
+
+            // Chosen crust
+            if (crust.Equals("Thin"))
+            {
+                 CrustMultiplier= 1.1;
+            }
+            if (crust.Equals("Deep Dish"))
+            {
+                CrustMultiplier= 1.2;
+            }
+            if (crust.Equals("Cheese Filled"))
+            {
+                CrustMultiplier= 1.5;
+            }
+
+
+            // Chosen Toppings
+            if (toppings[0].Equals("sauce"))
+            {
+                ToppingsPrice= 1;
+            }
+            if (toppings[0].Equals("chees"))
+            {
+                ToppingsPrice=1;
+            }
+            if (toppings[0].Equals("pepperoni"))
+            {
+                ToppingsPrice=3;
+            }
+            if (toppings[0].Equals("sausage"))
+            {
+                ToppingsPrice=4;
+            }
+            if (toppings[0].Equals("pineapple"))
+            {
+                ToppingsPrice= 3;
+            }
+
+
+            // return total cost of pizza
+            price= pizzaSizeCost * CrustMultiplier + ToppingsPrice;
+
         }
     }
 }

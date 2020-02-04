@@ -8,6 +8,8 @@ using PizzaBox.Storing.TestModels;
 using PizzaBox.Storing.Abstractions;
 using PizzaWebApplication.Models;
 using PizzaWebApplication.Data;
+using PizzaBox.Domain;
+using PizzaBox.Storing;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,9 +18,12 @@ namespace PizzaWebApplication.Controllers
     public class PizzaController : Controller
     {
         private readonly IRepositoryPizza<Pizza1> _repo;
-        public PizzaController(IRepositoryPizza<Pizza1> repo)
+        private readonly IRepositoryTempCustomerOrder<TempCustomerOrder1> _repo_tmp;
+
+        public PizzaController(IRepositoryPizza<Pizza1> repo, IRepositoryTempCustomerOrder<TempCustomerOrder1> TCO)
         {
             _repo = repo;
+            _repo_tmp = TCO;
         }
 
         // GET: /<controller>/
@@ -50,16 +55,87 @@ namespace PizzaWebApplication.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateNewPizza(TempCustomerOrder tmp)
+        public IActionResult CreateNewPizza(TempCustomerOrder tmp, 
+            bool Sauce, bool Sausage, bool Pepperoni, bool Cheese, bool Pineapple,
+            int Size, int Crust)
         {
-            int size = tmp.Size;
-            string crust = tmp.Crust;
-            bool sauce = tmp.sauce;
-            bool cheese = tmp.cheese;
-            bool pepperoni = tmp.pepperoni;
-            bool sausage = tmp.sausage;
-            bool pineapple = tmp.pineapple;
+            
+            //int size = tmp.Size;
+            //string crust = tmp.Crust;
+            //bool sauce = tmp.sauce;
+            //bool cheese = tmp.cheese;
+            //bool pepperoni = tmp.pepperoni;
+            //bool sausage = tmp.sausage;
 
+
+
+
+            char[] tops = new char[5];
+            if (Sauce)
+            {
+                tops[0] = '1';
+            }
+            else
+            {
+                tops[0] = '0';
+            }
+            if (Cheese)
+            {
+                tops[1] = '1';
+            }
+            else
+            {
+                tops[1] = '0';
+            }
+            if (Pepperoni)
+            {
+                tops[2] = '1';
+            }
+            else
+            {
+                tops[2] = '0';
+            }
+            if (Sausage)
+            {
+                tops[3] = '1';
+            }
+            else
+            {
+                tops[3] = '0';
+            }
+            if (Pineapple)
+            {
+                tops[4] = '1';
+            }
+            else
+            {
+                tops[4] = '0';
+            }
+
+            // add pizza cypher to format code into database model
+            PizzaOrderCypher POC = new PizzaOrderCypher();
+            POC.setCrust(Crust);
+            POC.setSize(Size);
+            POC.setToppings(tops);
+            POC.getPriceOfPizza();
+
+            // Add Full Order to POC current Customer order.
+            ViewBag.id = tmp.PizzaId + 1;
+            FullOrder.storeID = CustomerInfo.StoreId;
+            FullOrder.UserID = CustomerInfo.Id;
+            FullOrder.currOrder.Add(POC);
+
+            TempCustomerOrder1 TCO = new TempCustomerOrder1();
+            
+            TCO.Toppings = BitFlagConversion.convertFlagArrayToInt(tops);
+            TCO.Size = POC.size;
+            TCO.Crust = POC.crust;
+            TCO.CustId = CustomerInfo.Id;
+            TCO.StoreId = CustomerInfo.StoreId;
+            TCO.PizzaId = new Random().Next(10000000, 100000000);
+            TCO.Price = Convert.ToDecimal(POC.price);
+
+            _repo_tmp.CreateOrder(TCO);
 
             return View();
         }
