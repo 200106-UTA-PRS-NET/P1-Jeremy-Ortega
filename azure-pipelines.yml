@@ -57,11 +57,11 @@ steps:
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet test'
 
--task: DotNetCoreCLI@2
-inputs:
-  command: 'test'
-  projects: '$(pathtotest)'
-  workingDirectory: '$(pathtosolution)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '$(pathtotest)'
+    workingDirectory: '$(pathtosolution)'
 
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
