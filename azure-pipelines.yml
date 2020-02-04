@@ -50,7 +50,7 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: dotnet test
-  --configuration $(buildConfiguration)
+  --configuration: $(buildConfiguration)
   --no-build
   --results-directory $(Build.ArtifactStagingDirectory)/test
   /p:CollectionCoverage=true
