@@ -1,0 +1,58 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: 'Release'
+  pathtosolution: 'PizzaBox'
+  pathtoroject: 'PizzaWebApplication'
+  pathtotest: 'PizzaBox/XUnitTestPizzaProject'
+  
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+steps:
+- script:
+    dotnet build --configuration $(buildConfiguration)
+  workingDirectory: $(pathtosolution)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- script: dotnet test
+  --configuration $(buildConfiguration)
+  --no-build
+  --results-directory $(Build.ArtifactStagingDirectory)/test
+  /p:CollectionCoverage=true
+workingDirectory: $(pathtosolution)
+displayName: 'dotnet test'
+
+-task: DotNetCoreCLI@2
+inputs:
+  command: 'test'
+  projects: '$(pathtotest)'
+  workingDirectory: '$(pathtosolution)'
