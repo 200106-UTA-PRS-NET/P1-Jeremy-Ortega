@@ -89,7 +89,7 @@ namespace PizzaWebApplication.Controllers
                 //For each order go through and check if store id and customer id match
                 foreach (var _stor in stor)
                 {
-                    foreach (var _ord in o.OrderByDescending(e => e.CustId))
+                    foreach (var _ord in o.OrderByDescending(e => e.CustId).ToList())
                     {
                         if (v.Id == _ord.CustId && _ord.StoreId == _stor.Id)
                         {

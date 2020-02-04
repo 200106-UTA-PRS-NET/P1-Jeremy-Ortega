@@ -23,7 +23,7 @@ namespace PizzaWebApplication.Controllers
         // GET: TempCustomerOrder
         public ActionResult Index(int Id)
         {
-            var currentOrder = _repo.ReadInOrder(Id);
+            var currentOrder = _repo.ReadInOrder(Id).ToList();
 
             List<TempCustomerOrder> CurOrd = new List<TempCustomerOrder>();
             foreach (var Cx in CurOrd)

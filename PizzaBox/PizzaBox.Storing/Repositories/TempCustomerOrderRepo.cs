@@ -41,7 +41,7 @@ namespace PizzaBox.Storing.Repositories
         /// <param name="pizza"></param>
         public void DeleteOrder(int Id)
         {
-            var Cus = PCO.TempCustomerOrder.OrderByDescending(CxTempOrd => CxTempOrd.CustId == Id);
+            var Cus = PCO.TempCustomerOrder.OrderByDescending(CxTempOrd => CxTempOrd.CustId == Id).ToList();
             foreach (var C in Cus) {
                 PCO.Remove(C);
                 PCO.SaveChanges();

@@ -10,7 +10,7 @@ namespace PizzaWebApplication.Data
         public List<string> toppings { get; } = new List<string>();
         public int size { get; private set; }
         public string crust { get; private set; }
-        public double price{get; private set;}
+        public decimal price{get; set;}
 
         public void setSize(int check)
         {
@@ -95,17 +95,17 @@ namespace PizzaWebApplication.Data
             double pizzaSizeCost = 0.0;
 
             // Chosen Size
-            if (size == 1)
+            if (size == 12)
             {
-                price += 8.0;
+                pizzaSizeCost = 8.0;
             }
-            else if (size == 2)
+            else if (size == 15)
             {
-                price += 9.5;
+                pizzaSizeCost = 9.5;
             }
-            else if (size == 3)
+            else
             {
-                price += 10.5;
+                pizzaSizeCost = 10.5;
             }
 
             // Chosen crust
@@ -113,11 +113,11 @@ namespace PizzaWebApplication.Data
             {
                  CrustMultiplier= 1.1;
             }
-            if (crust.Equals("Deep Dish"))
+            else if (crust.Equals("Deep Dish"))
             {
                 CrustMultiplier= 1.2;
             }
-            if (crust.Equals("Cheese Filled"))
+            else
             {
                 CrustMultiplier= 1.5;
             }
@@ -128,9 +128,9 @@ namespace PizzaWebApplication.Data
             {
                 ToppingsPrice= 1;
             }
-            if (toppings[0].Equals("chees"))
+            if (toppings[0].Equals("cheese"))
             {
-                ToppingsPrice=1;
+                ToppingsPrice=2;
             }
             if (toppings[0].Equals("pepperoni"))
             {
@@ -147,7 +147,7 @@ namespace PizzaWebApplication.Data
 
 
             // return total cost of pizza
-            price= pizzaSizeCost * CrustMultiplier + ToppingsPrice;
+            price= Convert.ToDecimal(pizzaSizeCost * CrustMultiplier + ToppingsPrice);
 
         }
     }

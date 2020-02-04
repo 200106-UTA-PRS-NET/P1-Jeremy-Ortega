@@ -32,7 +32,7 @@ namespace PizzaWebApplication.Controllers
         [Route("Pizza/Index")]
         public IActionResult Index()
         {
-            var pizza = _repo.ReadInPizza();
+            var pizza = _repo.ReadInPizza().ToList();
 
             List<PizzaViewModel> pvm = new List<PizzaViewModel>();
             foreach (var piz in pizza)
@@ -133,7 +133,7 @@ namespace PizzaWebApplication.Controllers
             TCO.CustId = CustomerInfo.Id;
             TCO.StoreId = CustomerInfo.StoreId;
             TCO.PizzaId = new Random().Next(10000000, 100000000);
-            TCO.Price = Convert.ToDecimal(POC.price);
+            TCO.Price =POC.price;
 
             _repo_tmp.CreateOrder(TCO);
 

@@ -22,12 +22,16 @@ namespace PizzaWebApplication.Controllers
         private readonly IRepositoryOrders<Order1> _repo;
         private readonly CustomerViewModel _CVM;
         private readonly IRepositoryTempCustomerOrder<TempCustomerOrder1> _tco;
+        private readonly IRepositoryPizza<Pizza1> _pizza;
 
-        public OrderController(IRepositoryOrders<Order1> repo, CustomerViewModel CVM, IRepositoryTempCustomerOrder<TempCustomerOrder1> TCO)
+        public OrderController(IRepositoryOrders<Order1> repo, CustomerViewModel CVM, 
+            IRepositoryTempCustomerOrder<TempCustomerOrder1> TCO,
+            IRepositoryPizza<Pizza1> Pizza)
         {
             _CVM = CVM;
             _repo = repo;
             _tco = TCO;
+            _pizza = Pizza;
         }
 
 
@@ -52,19 +56,22 @@ namespace PizzaWebApplication.Controllers
             return View(ovm);
         }
         
+        // Creates Order
         public IActionResult Create()
         {
             List<TempCustomerOrder> TCO = new List<TempCustomerOrder>();
-            var fulOrder = _tco.ReadInOrder(FullOrder.UserID);
+            var fulOrder = _tco.ReadInOrder(FullOrder.UserID).ToList();
+            decimal Tot = 0;
             foreach (var ord in fulOrder)
             {
                 TempCustomerOrder tco = new TempCustomerOrder();
                 tco.Crust = ord.Crust;
                 tco.Price = ord.Price;
+                Tot += ord.Price;
                 tco.Size = ord.Size;
                 TCO.Add(tco);
             }
-
+            ViewBag.total = Tot;
             return View(TCO);
         }
 
@@ -102,24 +109,37 @@ namespace PizzaWebApplication.Controllers
         public IActionResult viewOrder(PizzaViewModel OVM)
         {
             // created object from _repo database object
-            var order = _repo.ReadInOrder();
-
+            var order = _tco.ReadInOrder(FullOrder.UserID).ToList();
+            int OrderID = Convert.ToInt32(new Random().Next(1000000, 10000000));
             // Check each of the orders in the database 
-            //foreach (var ord in order.OrderByDescending(e=>e.OrderDate))
-            //{
-            // If the order id matches the OVM 
-            //if (ord.CustId == _CVM.Id)
-            //{
-            PizzaOrderCypher ordV = new PizzaOrderCypher();
-            ordV.setToppings(BitFlagConversion.convertIntToFlagArray(5, OVM.Toppings));
-            ordV.setSize(OVM.Size);
-            ordV.setCrust(Convert.ToInt32(OVM.Crust));
-            FullOrder.currOrder.Add(ordV);
-            //}
-            //}
+            // get the full sum of all orders placed.
+            var sum = _tco.ReadInOrder(FullOrder.UserID).Select(e=>e.Price).Sum();
 
-            return View(FullOrder.currOrder);
-            //return View();
+            Order1 o = new Order1();
+            o.OrderId = OrderID;
+            o.Price = sum;
+            o.StoreId = FullOrder.storeID;
+            o.CustId = FullOrder.UserID;
+            o.OrderDate = DateTime.Now;
+            _repo.CreateOrder(o);
+
+            foreach (var ord in order)
+            {
+                Pizza1 p = new Pizza1();
+                p.Crust = ord.Crust;
+                p.Price = ord.Price;
+                p.Size = ord.Size;
+                p.Toppings = ord.Toppings;
+                p.OrderId = OrderID;
+                p.PizzaId = Convert.ToInt32(new Random().Next(1000000, 10000000));
+                _pizza.CreatePizza(p);
+            }
+
+
+            // delete all temp orders once placed into the database
+            _tco.DeleteOrder(FullOrder.UserID);
+
+            return View();
         }
 
         public ActionResult Edit(int id, IFormCollection collection)
@@ -134,22 +154,24 @@ namespace PizzaWebApplication.Controllers
             }
         }
 
+        // redirect here to do some deletion logic before rerouting back to the order page again
         public ActionResult Delete()
         {
+            _tco.DeleteOrder(FullOrder.UserID);
             return View();
         }
 
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //public ActionResult Delete(int id, IFormCollection collection)
+        //{
+        //    try
+        //    {
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
     }
 }
