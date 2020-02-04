@@ -45,7 +45,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.StoreId)
                 </th>*@
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -97,7 +96,7 @@
 </table>
 <h4>Total: @ViewBag.total</h4>
 <div class="form-group">
-    <input asp-action="viewOrder" asp-controller="Order"
+    <a asp-action="viewOrder" asp-controller="Order"
            type="submit" value="Place Order" class="btn btn-primary" />
 </div>
 <div>
