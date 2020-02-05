@@ -25,6 +25,13 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'pizzaboxapplication'
+    scannerMode: 'MSBuild'
+    projectKey: 'pizzabocapplication117'
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -37,22 +44,26 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-steps:
-- script:
-    dotnet build --configuration $(buildConfiguration)
+- script: dotnet build
+    --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: dotnet test
-  --configuration $(buildConfiguration)
-  --no-build
-  --results-directory $(Build.ArtifactStagingDirectory)/test
-  /p:CollectionCoverage=true
-workingDirectory: $(pathtosolution)
-displayName: 'dotnet test'
+    --configuration $(buildConfiguration)
+    --no-build
+    --results-directory $(Build.ArtifactStagingDirectory)/test
+    /p:CollectionCoverage=true
+  workingDirectory: $(pathtosolution)
+  displayName: 'dotnet test'
 
--task: DotNetCoreCLI@2
-inputs:
-  command: 'test'
-  projects: '$(pathtotest)'
-  workingDirectory: '$(pathtosolution)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '$(pathtotest)'
+    workingDirectory: '$(pathtosolution)'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
