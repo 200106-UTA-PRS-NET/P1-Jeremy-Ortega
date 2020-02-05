@@ -48,6 +48,17 @@ namespace PizzaBox.Storing.Repositories
             }
         }
 
+        /// <summary>
+        /// Delete Pizza matching a pizza ID.
+        /// </summary>
+        /// <param name="Id"></param>
+        public void DeletePie(int Id)
+        {
+            var Cus = PCO.TempCustomerOrder.FirstOrDefault(CxTempOrd => CxTempOrd.PizzaId == Id);
+                PCO.Remove(Cus);
+                PCO.SaveChanges();
+        }
+
         public IEnumerable<TempCustomerOrder1> ReadInOrder(int Id)
         {
 
@@ -60,7 +71,7 @@ namespace PizzaBox.Storing.Repositories
 
         }
 
-        public void UpdateOrder(TestModels.TempCustomerOrder1 Order)
+        public void UpdateOrder(TempCustomerOrder1 Order)
         {
             throw new NotImplementedException();
         }

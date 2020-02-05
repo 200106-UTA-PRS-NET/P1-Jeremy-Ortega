@@ -11,5 +11,6 @@ namespace PizzaBox.Storing.Abstractions
         void CreateOrder(T Order);
         void UpdateOrder(T Order);
         void DeleteOrder(int Id);
+        void DeletePie(int Id);
     }
 }

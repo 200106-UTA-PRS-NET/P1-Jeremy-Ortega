@@ -27,9 +27,17 @@
             <td>
                 @Html.DisplayFor(modelItem => item.StoreLocation)
             </td>
+            @if (item.date > 24) {
             <td>
-                @Html.ActionLink("order","StorePortal", "Store", new { item.StoreName, Model.CVM.Fname })
+                @Html.ActionLink("order", "StorePortal", "Store", new { item.StoreName, Model.CVM.Fname })
             </td>
+            }
+            else
+            {
+                <td>
+                    Please Wait @decimal.Round(Convert.ToDecimal(24-item.date), 2) hours before ordering here again.
+                </td>
+            }
         </tr>
         }
     </tbody>

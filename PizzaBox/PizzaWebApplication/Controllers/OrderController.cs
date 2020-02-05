@@ -67,6 +67,7 @@ namespace PizzaWebApplication.Controllers
                 TempCustomerOrder tco = new TempCustomerOrder();
                 tco.Crust = ord.Crust;
                 tco.Price = ord.Price;
+                tco.PizzaId = ord.PizzaId;
                 Tot += ord.Price;
                 tco.Size = ord.Size;
                 TCO.Add(tco);
@@ -159,6 +160,12 @@ namespace PizzaWebApplication.Controllers
         {
             _tco.DeleteOrder(FullOrder.UserID);
             return View();
+        }
+
+        public ActionResult DeletePizza(int id)
+        {
+            _tco.DeletePie(id);
+            return RedirectToAction("Create", "Order");
         }
 
         //public ActionResult Delete(int id, IFormCollection collection)

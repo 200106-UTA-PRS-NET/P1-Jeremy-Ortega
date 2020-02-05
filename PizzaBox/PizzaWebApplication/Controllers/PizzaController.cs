@@ -57,88 +57,91 @@ namespace PizzaWebApplication.Controllers
         [HttpPost]
         public IActionResult CreateNewPizza(TempCustomerOrder tmp, 
             bool Sauce, bool Sausage, bool Pepperoni, bool Cheese, bool Pineapple,
-            int Size, int Crust)
+            int Size, int Crust, int number)
         {
-            
             //int size = tmp.Size;
             //string crust = tmp.Crust;
             //bool sauce = tmp.sauce;
             //bool cheese = tmp.cheese;
             //bool pepperoni = tmp.pepperoni;
             //bool sausage = tmp.sausage;
+            for (int i = 0; i < number; i++) {
 
+                char[] tops = new char[5];
+                if (Sauce)
+                {
+                    tops[0] = '1';
+                }
+                else
+                {
+                    tops[0] = '0';
+                }
+                if (Cheese)
+                {
+                    tops[1] = '1';
+                }
+                else
+                {
+                    tops[1] = '0';
+                }
+                if (Pepperoni)
+                {
+                    tops[2] = '1';
+                }
+                else
+                {
+                    tops[2] = '0';
+                }
+                if (Sausage)
+                {
+                    tops[3] = '1';
+                }
+                else
+                {
+                    tops[3] = '0';
+                }
+                if (Pineapple)
+                {
+                    tops[4] = '1';
+                }
+                else
+                {
+                    tops[4] = '0';
+                }
 
+                // add pizza cypher to format code into database model
+                PizzaOrderCypher POC = new PizzaOrderCypher();
+                POC.setCrust(Crust);
+                POC.setSize(Size);
+                POC.setToppings(tops);
+                POC.getPriceOfPizza();
 
+                // Add Full Order to POC current Customer order.
+                ViewBag.id = tmp.PizzaId + 1;
+                FullOrder.storeID = CustomerInfo.StoreId;
+                FullOrder.UserID = CustomerInfo.Id;
+                FullOrder.currOrder.Add(POC);
 
-            char[] tops = new char[5];
-            if (Sauce)
-            {
-                tops[0] = '1';
-            }
-            else
-            {
-                tops[0] = '0';
-            }
-            if (Cheese)
-            {
-                tops[1] = '1';
-            }
-            else
-            {
-                tops[1] = '0';
-            }
-            if (Pepperoni)
-            {
-                tops[2] = '1';
-            }
-            else
-            {
-                tops[2] = '0';
-            }
-            if (Sausage)
-            {
-                tops[3] = '1';
-            }
-            else
-            {
-                tops[3] = '0';
-            }
-            if (Pineapple)
-            {
-                tops[4] = '1';
-            }
-            else
-            {
-                tops[4] = '0';
-            }
+                TempCustomerOrder1 TCO = new TempCustomerOrder1();
 
-            // add pizza cypher to format code into database model
-            PizzaOrderCypher POC = new PizzaOrderCypher();
-            POC.setCrust(Crust);
-            POC.setSize(Size);
-            POC.setToppings(tops);
-            POC.getPriceOfPizza();
+                TCO.Toppings = BitFlagConversion.convertFlagArrayToInt(tops);
+                TCO.Size = POC.size;
+                TCO.Crust = POC.crust;
+                TCO.CustId = CustomerInfo.Id;
+                TCO.StoreId = CustomerInfo.StoreId;
+                TCO.PizzaId = new Random().Next(10000000, 100000000);
+                TCO.Price = POC.price;
 
-            // Add Full Order to POC current Customer order.
-            ViewBag.id = tmp.PizzaId + 1;
-            FullOrder.storeID = CustomerInfo.StoreId;
-            FullOrder.UserID = CustomerInfo.Id;
-            FullOrder.currOrder.Add(POC);
-
-            TempCustomerOrder1 TCO = new TempCustomerOrder1();
-            
-            TCO.Toppings = BitFlagConversion.convertFlagArrayToInt(tops);
-            TCO.Size = POC.size;
-            TCO.Crust = POC.crust;
-            TCO.CustId = CustomerInfo.Id;
-            TCO.StoreId = CustomerInfo.StoreId;
-            TCO.PizzaId = new Random().Next(10000000, 100000000);
-            TCO.Price =POC.price;
-
-            _repo_tmp.CreateOrder(TCO);
-
+                _repo_tmp.CreateOrder(TCO);
+            }
             return View();
         }
+
+
+
+
+
+
 
 
 
@@ -149,7 +152,6 @@ namespace PizzaWebApplication.Controllers
             {
 
             }
-
 
             //                < div class="form-check form-check-inline">
             //    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
@@ -239,6 +241,85 @@ namespace PizzaWebApplication.Controllers
             {
                 return View();
             }
+        }
+
+
+
+
+        [HttpGet]
+        public IActionResult OrderPremadePizza()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult OrderPremadePizza(TempCustomerOrder tmp,
+            bool MeatLovers, bool Sausage, bool Pepperoni, bool Hawaiian,
+            int Size, int Crust, int number)
+        {
+            //int size = tmp.Size;
+            //string crust = tmp.Crust;
+            //bool sauce = tmp.sauce;
+            //bool cheese = tmp.cheese;
+            //bool pepperoni = tmp.pepperoni;
+            //bool sausage = tmp.sausage;
+            for (int i = 0; i < number; i++)
+            {
+
+                char[] tops = new char[5];
+                tops[0] = '1';
+                tops[1] = '1';
+ 
+                if (Pepperoni || MeatLovers)
+                {
+                    tops[2] = '1';
+                }
+                else
+                {
+                    tops[2] = '0';
+                }
+                if (Sausage || MeatLovers)
+                {
+                    tops[3] = '1';
+                }
+                else
+                {
+                    tops[3] = '0';
+                }
+                if (Hawaiian)
+                {
+                    tops[4] = '1';
+                }
+                else
+                {
+                    tops[4] = '0';
+                }
+
+                // add pizza cypher to format code into database model
+                PizzaOrderCypher POC = new PizzaOrderCypher();
+                POC.setCrust(Crust);
+                POC.setSize(Size);
+                POC.setToppings(tops);
+                POC.getPriceOfPizza();
+
+                // Add Full Order to POC current Customer order.
+                ViewBag.id = tmp.PizzaId + 1;
+                FullOrder.storeID = CustomerInfo.StoreId;
+                FullOrder.UserID = CustomerInfo.Id;
+                FullOrder.currOrder.Add(POC);
+
+                TempCustomerOrder1 TCO = new TempCustomerOrder1();
+
+                TCO.Toppings = BitFlagConversion.convertFlagArrayToInt(tops);
+                TCO.Size = POC.size;
+                TCO.Crust = POC.crust;
+                TCO.CustId = CustomerInfo.Id;
+                TCO.StoreId = CustomerInfo.StoreId;
+                TCO.PizzaId = new Random().Next(10000000, 100000000);
+                TCO.Price = POC.price;
+
+                _repo_tmp.CreateOrder(TCO);
+            }
+            return View();
         }
     }
 }

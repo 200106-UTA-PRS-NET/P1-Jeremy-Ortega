@@ -56,7 +56,7 @@ namespace PizzaWebApplication.Controllers
         public ActionResult LoggedIn(LoginViewModel collection)
         {
             var v = _repo.ReadInCustomer().FirstOrDefault(e => e.Email.Equals(collection.Email) && e.UserPass.Equals(collection.Password));
-            var o = _order.ReadInOrder().ToList();  // Super imprtant to convert to list to close connection
+            var o = _order.ReadInOrder().OrderByDescending(e => e.OrderDate);   // Super imprtant to convert to list to close connection
             var stor = _store.ReadInStore().ToList(); // ned to close connection by first creating a list
             if (v != null && o != null)
             {
@@ -85,31 +85,28 @@ namespace PizzaWebApplication.Controllers
                 _Main.CVM.Lname = v.Lname;
                 DateTime dt = DateTime.Now;
                 double time = 25;
-                double date2 = 25;
+                double date = 25;
                 //For each order go through and check if store id and customer id match
                 foreach (var _stor in stor)
                 {
-                    foreach (var _ord in o.OrderByDescending(e => e.CustId).ToList())
-                    {
-                        if (v.Id == _ord.CustId && _ord.StoreId == _stor.Id)
+                    foreach (var ord in o) {
+                        if (v.Id == ord.CustId && ord.StoreId == _stor.Id)
                         {
-                            TimeSpan ts2 = (TimeSpan)(dt - _ord.OrderDate);
-                            date2 = ts2.TotalMinutes / 60;
-                            if (date2 < time)
+                            TimeSpan ts2 = (TimeSpan)(dt - ord.OrderDate);
+                            date = ts2.TotalMinutes / 60;
+                            if (date < time)
                             {
-                                time = date2;
+                                time = date;
                             }
                         }
                     }
-                    if (time >= 24)
-                    {
-                        StoreViewModel stm = new StoreViewModel();
-                        stm.Id = _stor.Id;
-                        stm.StoreLocation = _stor.StoreLocation;
-                        stm.StoreName = _stor.StoreName;
-                        _Main.LOS.Add(stm);
-                        // TODO: Add Location 
-                    }
+                    StoreViewModel stm = new StoreViewModel();
+                    stm.Id = _stor.Id;
+                    stm.StoreLocation = _stor.StoreLocation;
+                    stm.StoreName = _stor.StoreName;
+                    stm.date = time;
+                    time = 25;
+                    _Main.LOS.Add(stm);
                 }
                 return View(_Main);
             }

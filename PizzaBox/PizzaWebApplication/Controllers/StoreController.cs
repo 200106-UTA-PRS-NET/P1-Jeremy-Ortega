@@ -42,16 +42,23 @@ namespace storeWebApplication.Controllers
         [HttpGet]
         public IActionResult StorePortal(string StoreName, string Fname)
         {
-            StoreOptionsViewModel sovm = new StoreOptionsViewModel
+            StoreOptionsViewModel sovm = new StoreOptionsViewModel();
+            if (StoreName != null)
             {
-                Fname = Fname,
-                storeName = StoreName
-            };
-            CustomerInfo.storeName = StoreName;
-            CustomerInfo.StoreId = _repo.ReadInStore().FirstOrDefault(e=>e.StoreName==StoreName).Id;
+                sovm.Fname = Fname;
+                sovm.storeName = StoreName;
+                CustomerInfo.storeName = StoreName;
+                FullOrder.storeName = StoreName;
+                CustomerInfo.StoreId = _repo.ReadInStore().FirstOrDefault(e => e.StoreName == CustomerInfo.storeName).Id;
+                FullOrder.storeName = StoreName;
+                FullOrder.storeID = CustomerInfo.StoreId;
+            }
+            else
+            {
+                sovm.Fname = FullOrder.userName;
+                sovm.storeName = FullOrder.storeName;
+            }
 
-            FullOrder.storeName = StoreName;
-            FullOrder.storeID = CustomerInfo.StoreId;
             return View(sovm);
         }
 
