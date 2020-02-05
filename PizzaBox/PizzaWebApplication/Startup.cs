@@ -28,8 +28,6 @@ namespace PizzaWebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-
             string connectionString = Configuration.GetConnectionString("PizzaProject");
 
             services.AddDbContext<PizzaProjectDbContext>(options => options.UseSqlServer(connectionString));
@@ -65,7 +63,6 @@ namespace PizzaWebApplication
             app.UseRouting();
 
             app.UseAuthorization();
-
 
             app.UseEndpoints(endpoints =>
             {

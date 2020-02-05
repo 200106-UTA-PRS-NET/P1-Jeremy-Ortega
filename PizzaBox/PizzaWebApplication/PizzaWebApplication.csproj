@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>4fd4f8e8-fdcd-42c1-afc9-251eaad33818</UserSecretsId>
+    <StartupObject>PizzaWebApplication.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
