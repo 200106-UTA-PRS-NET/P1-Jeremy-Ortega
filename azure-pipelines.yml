@@ -10,9 +10,9 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: 'Release'
+  solution: '**/*.sln'
   pathtosolution: 'PizzaBox'
-  pathtoroject: 'PizzaWebApplication'
+  pathtoproject: 'PizzaWebApplication'
   pathtotest: 'PizzaBox/XUnitTestPizzaProject'
   
   buildPlatform: 'Any CPU'
