@@ -253,8 +253,7 @@ namespace PizzaWebApplication.Controllers
         }
         [HttpPost]
         public IActionResult OrderPremadePizza(TempCustomerOrder tmp,
-            bool MeatLovers, bool Sausage, bool Pepperoni, bool Hawaiian,
-            int Size, int Crust, int number)
+            string pizza, int Size, int Crust, int number)
         {
             //int size = tmp.Size;
             //string crust = tmp.Crust;
@@ -269,7 +268,7 @@ namespace PizzaWebApplication.Controllers
                 tops[0] = '1';
                 tops[1] = '1';
  
-                if (Pepperoni || MeatLovers)
+                if (pizza[2].Equals("Pepperoni") || pizza[2].Equals("Meat Lovers"))
                 {
                     tops[2] = '1';
                 }
@@ -277,7 +276,7 @@ namespace PizzaWebApplication.Controllers
                 {
                     tops[2] = '0';
                 }
-                if (Sausage || MeatLovers)
+                if (pizza[3].Equals("Sausage") || pizza[3].Equals("MeatLovers"))
                 {
                     tops[3] = '1';
                 }
@@ -285,7 +284,7 @@ namespace PizzaWebApplication.Controllers
                 {
                     tops[3] = '0';
                 }
-                if (Hawaiian)
+                if (pizza[4].Equals("Hawaiian"))
                 {
                     tops[4] = '1';
                 }
