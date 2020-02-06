@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Storing.Abstractions;
 using PizzaBox.Storing.TestModels;
 using PizzaWebApplication.Models;
+using PizzaWebApplication.Data;
+using System.Linq;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,11 +16,13 @@ namespace PizzaWebApplication.Controllers
     {
         private readonly CustomerViewModel _Cust;
         private readonly IRepositoryCustomer<Customer1> _repo;
+        private readonly IRepositoryOrders<Order1> _ord;
 
-        public CustomerController(IRepositoryCustomer<Customer1> repo, CustomerViewModel cust)
+        public CustomerController(IRepositoryCustomer<Customer1> repo, CustomerViewModel cust, IRepositoryOrders<Order1> ord)
         {
             _repo = repo;
             _Cust = cust;
+            _ord = ord;
         }
 
 
@@ -29,19 +31,25 @@ namespace PizzaWebApplication.Controllers
         [Route("Customer/Index")]
         public IActionResult Index()
         {
-            var customer = _repo.ReadInCustomer();
+            var customer = _repo.ReadInCustomer().ToList();
+            var ord = _ord.ReadInOrder().ToList();
 
             List<CustomerViewModel> cvm = new List<CustomerViewModel>();
+
             foreach (var cus in customer)
             {
-                CustomerViewModel cx = new CustomerViewModel();
-                cx.Id = cus.Id;
-                cx.Fname = cus.Fname;
-                cx.Lname = cus.Lname;
-                cx.Email = cus.Email;
-                cx.Phone = cus.Phone;
-                cx.UserPass = cus.UserPass;
-                cvm.Add(cx);
+                foreach (var o in ord) {
+                    if (FullOrder.storeID == o.StoreId && cus.Id == o.CustId) {
+                        CustomerViewModel cx = new CustomerViewModel();
+                        cx.Id = cus.Id;
+                        cx.Fname = cus.Fname;
+                        cx.Lname = cus.Lname;
+                        cx.Email = cus.Email;
+                        cx.Phone = cus.Phone;
+                        cx.UserPass = cus.UserPass;
+                        cvm.Add(cx);
+                    }
+                }
             }
             return View(cvm);
         }

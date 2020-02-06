@@ -13,15 +13,12 @@ namespace PizzaWebApplication.Controllers
 {
     public class LoginController : Controller
     {
-
         private readonly IRepositoryCustomer<Customer1> _repo;
         private readonly IRepositoryOrders<Order1> _order;
         private readonly IRepositoryStore<Store1> _store;
 
-
         const string SessionName = "_Name";
         const string SessionPassword = "_Password";
-
 
         public LoginController(IRepositoryCustomer<Customer1> repo, 
             IRepositoryOrders<Order1> orderRepo,
@@ -60,7 +57,6 @@ namespace PizzaWebApplication.Controllers
             var stor = _store.ReadInStore().ToList(); // ned to close connection by first creating a list
             if (v != null && o != null)
             {
-
                 CustomerInfo.Fname = v.Fname;
                 CustomerInfo.Id = v.Id;
                 CustomerInfo.Lname = v.Lname;
@@ -68,9 +64,6 @@ namespace PizzaWebApplication.Controllers
 
                 FullOrder.userName = v.Fname;
                 FullOrder.UserID = v.Id;
-                
-
-
 
                 //List<StoreViewModel> svm = new List<StoreViewModel>();
                 // RedirectToAction("Action", "Controller");
@@ -104,7 +97,14 @@ namespace PizzaWebApplication.Controllers
                     stm.Id = _stor.Id;
                     stm.StoreLocation = _stor.StoreLocation;
                     stm.StoreName = _stor.StoreName;
-                    stm.date = time;
+                    if (v.Lname.Equals("admin"))
+                    {
+                        stm.date = 25;
+                    }
+                    else
+                    {
+                        stm.date = time;
+                    }
                     time = 25;
                     _Main.LOS.Add(stm);
                 }
@@ -112,7 +112,6 @@ namespace PizzaWebApplication.Controllers
             }
             return RedirectToAction("Index", "Login");
         }
-
 
 
         [HttpPost]
@@ -127,7 +126,6 @@ namespace PizzaWebApplication.Controllers
                     RedirectToAction("create", "StoreController");
                 }
             }
-
             try
             {
                 // RedirectToAction("Action", "Controller");

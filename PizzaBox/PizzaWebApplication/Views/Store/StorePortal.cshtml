@@ -1,6 +1,10 @@
 ﻿@model PizzaWebApplication.Models.StoreOptionsViewModel
 
 @{
+    if (CustomerInfo.Lname.Equals("admin"))
+    {
+        Layout = "_Layout";
+    }
     ViewData["Title"] = "StorePortal";
 }
 
@@ -13,7 +17,7 @@
         <div class="text-center">
             <button onclick="location.href='@Url.Action("OrderPremadePizza", "Pizza")'" type="button" class="btn btn-primary">Order Premade</button>
             <button onclick="location.href='@Url.Action("CreateNewPizza", "Pizza")'" type="button" class="btn btn-primary">Custom Orders</button>
-            <button onclick="location.href='@Url.Action("Index", "Order")'" type="button" class="btn btn-primary">View Past Orders</button>
+            <button onclick="location.href='@Url.Action("MyOrder", "Order")'" type="button" class="btn btn-primary">View Past Orders</button>
         </div>
     </form>
 </div>

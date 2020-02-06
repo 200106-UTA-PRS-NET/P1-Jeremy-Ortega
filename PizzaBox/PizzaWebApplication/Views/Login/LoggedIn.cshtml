@@ -2,7 +2,15 @@
 
 @{
     ViewData["Title"] = "Login";
-    Layout = "_LayoutPortal";
+
+    if (@Model.CVM.Lname.Equals("admin"))
+    {
+        Layout = "_LayoutAdmin";
+    }
+    else
+    {
+        Layout = "_LayoutPortal";
+    }
 }
 
 <h1>Welcome @Model.CVM.Fname!</h1>

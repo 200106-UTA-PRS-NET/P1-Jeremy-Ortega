@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PizzaBox.Domain;
 using PizzaBox.Storing.Abstractions;
 using PizzaBox.Storing.TestModels;
 using PizzaWebApplication.Models;
 using PizzaWebApplication.Data;
-using PizzaBox.Storing;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -43,7 +39,7 @@ namespace PizzaWebApplication.Controllers
             List<OrderViewModel> ovm = new List<OrderViewModel>();
             foreach (var ord in order)
             {
-                if (ord.CustId == CustomerInfo.Id && ord.StoreId == CustomerInfo.StoreId) {
+                if (ord.StoreId == FullOrder.storeID) {
                     OrderViewModel ox = new OrderViewModel();
                     ox.OrderId = ord.OrderId;
                     ox.CustId = ord.CustId;
@@ -55,7 +51,29 @@ namespace PizzaWebApplication.Controllers
             }
             return View(ovm);
         }
-        
+
+
+        public IActionResult MyOrder()
+        {
+            var order = _repo.ReadInOrder().OrderByDescending(e => e.OrderDate).ToList();
+
+            List<OrderViewModel> ovm = new List<OrderViewModel>();
+            foreach (var ord in order)
+            {
+                if (ord.StoreId == FullOrder.storeID && ord.CustId == FullOrder.UserID)
+                {
+                    OrderViewModel ox = new OrderViewModel();
+                    ox.OrderId = ord.OrderId;
+                    ox.CustId = ord.CustId;
+                    ox.OrderDate = ord.OrderDate;
+                    ox.Price = ord.Price;
+                    ox.StoreId = ord.StoreId;
+                    ovm.Add(ox);
+                }
+            }
+            return View(ovm);
+        }
+
         // Creates Order
         public IActionResult Create()
         {
@@ -75,36 +93,6 @@ namespace PizzaWebApplication.Controllers
             ViewBag.total = Tot;
             return View(TCO);
         }
-
-
-        //public IActionResult Create(OrderViewModel order)
-        //{
-
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            Order1 ox = new Order1()
-        //            {
-        //                OrderId = order.OrderId,
-        //                CustId = order.CustId,
-        //                OrderDate=order.OrderDate,
-        //                Price=order.Price,
-        //                StoreId=order.StoreId
-        //            };
-        //            _repo.CreateOrder(ox);
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        //        else
-        //        {
-        //            return View();
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
 
 
         public IActionResult viewOrder(PizzaViewModel OVM)
@@ -167,18 +155,5 @@ namespace PizzaWebApplication.Controllers
             _tco.DeletePie(id);
             return RedirectToAction("Create", "Order");
         }
-
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
     }
 }
