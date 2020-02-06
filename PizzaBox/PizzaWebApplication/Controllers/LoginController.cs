@@ -110,7 +110,13 @@ namespace PizzaWebApplication.Controllers
                 }
                 return View(_Main);
             }
-            return RedirectToAction("Index", "Login");
+            if (CustomerInfo.Lname.Equals("admin")) {
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                return RedirectToAction("MyOrder", "login");
+            }
         }
 
 
