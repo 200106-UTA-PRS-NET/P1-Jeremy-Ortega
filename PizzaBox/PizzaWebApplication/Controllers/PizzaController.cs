@@ -59,6 +59,10 @@ namespace PizzaWebApplication.Controllers
             bool Sauce, bool Sausage, bool Pepperoni, bool Cheese, bool Pineapple,
             int Size, int Crust, int number)
         {
+            if (Size > 100)
+            {
+                return View();
+            }
             //int size = tmp.Size;
             //string crust = tmp.Crust;
             //bool sauce = tmp.sauce;
