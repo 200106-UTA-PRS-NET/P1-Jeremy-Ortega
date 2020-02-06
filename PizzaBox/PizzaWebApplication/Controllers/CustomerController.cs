@@ -81,7 +81,7 @@ namespace PizzaWebApplication.Controllers
                         UserPass = customer.UserPass
                     };
                     _repo.CreateCustomer(cx);
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
